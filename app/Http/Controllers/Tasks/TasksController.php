@@ -8,6 +8,13 @@ use App\Http\Controllers\Controller;
 class TasksController extends Controller
 {
     /**
+     * a constructor to ensure that only authenticatd users can access any method here
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
