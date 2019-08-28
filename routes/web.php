@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/task',['as'=>'viewAllTasks','uses'=>'Tasks\TasksController@index']);
+Route::post('/task',['as'=>'addNewTask','uses'=>'Tasks\TasksController@store']);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
