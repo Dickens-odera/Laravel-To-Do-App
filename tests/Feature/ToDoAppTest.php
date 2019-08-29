@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-
+use App\Tasks;
 class ToDoAppTest extends TestCase
 {
     /**
@@ -22,11 +22,12 @@ class ToDoAppTest extends TestCase
     /** @test */
     public function testToSeeThatOnlyLoggedInUsersCanViewTheTaskLists()
     {
-        //$response = $this->get('/task')->assertRedirect('/login');
+        $response = $this->get('/task');
+        $response->assertRedirect('/login');
     }
     /** @test */
-    public function testThataNewTaskCanBeCreated()
-    {
-        //$task = new App\Tasks();
-    }
+    // public function testThataNewTaskCanBeCreated()
+    // {
+        
+    // }
 }

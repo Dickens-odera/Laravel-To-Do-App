@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Tasks;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    //a relationship between the user and the Tasks
+    public function task()
+    {
+       return $this->hasMany(App\Tasks::class, 'user_id');
+    }
 }

@@ -14,8 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/task',['as'=>'viewAllTasks','uses'=>'Tasks\TasksController@index']);
 Route::post('/task',['as'=>'addNewTask','uses'=>'Tasks\TasksController@store']);
+Route::get('/task/create','Tasks\TasksController@create')->name('showTaskCreationForm');
+Route::get('/task/edit',['as'=>'editTask','uses'=>'Tasks\TasksController@edit']);
+Route::post('/task/update','Tasks\TasksController@update')->name('updateTask');
+Route::post('/status','Tasks\TasksController@updateTaskStatus')->name('changeStatus');
+Route::post('/task/delete',['as'=>'deleteTask','uses'=>'Tasks\TasksController@destroy']);
 
 Auth::routes();
 
