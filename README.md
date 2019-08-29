@@ -1,3 +1,3 @@
 ### Laravel To-Do Web App
-(![Dashboard]({!! asset('public/images/dashboard.PNG')!!}))
+(![Dashboard](asset('public/images/dashboard.PNG'))
 
